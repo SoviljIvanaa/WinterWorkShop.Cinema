@@ -12,7 +12,7 @@ namespace WinterWorkShop.Cinema.Data
         public List<ProjectionModel> GetAllProjectionsResponses = new List<ProjectionModel>
         {
             new ProjectionModel {Id = 1, ProjectionDate = DateTime.Now, ProjectionName = "Projekcija 1"},
-            new ProjectionModel {Id = 2, ProjectionDate = DateTime.Now, ProjectionName = "Projekcija 2"}
+            new ProjectionModel {Id = 2, ProjectionDate = DateTime.Now, ProjectionName = "Projekcija 2", MovieId = 1}
         };
     }
 }

@@ -11,5 +11,7 @@ namespace WinterWorkShop.Cinema.Data.Models
         public int Id { get; set; }
         public DateTime ProjectionDate { get; set;}
         public string ProjectionName { get; set;}
+
+        public int MovieId { get; set; }
     }
 }
