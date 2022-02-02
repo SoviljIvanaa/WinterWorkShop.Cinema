@@ -53,7 +53,7 @@ namespace WinterWorkShop.Cinema.API.Controllers
 
             var result = new MovieResponse()
             {
-                Id = id,
+                Id = movie.Id,
                 Name = movie.Name
             };
 
