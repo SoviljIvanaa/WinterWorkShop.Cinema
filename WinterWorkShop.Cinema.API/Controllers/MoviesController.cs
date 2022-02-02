@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
-using WinterWorkShop.Cinema.Data.Repositories;
 using WinterWorkShop.Cinema.Domain.Responses;
+using WinterWorkShop.Cinema.Domain.Common;
+using WinterWorkShop.Cinema.API.Models;
+using WinterWorkShop.Cinema.Data.Repositories;
 
 namespace WinterWorkShop.Cinema.API.Controllers
 {
@@ -16,20 +18,44 @@ namespace WinterWorkShop.Cinema.API.Controllers
         }
 
         [HttpGet()]
-        public List<GetAllMoviesResponse> GetMovies()
+        public List<MovieResponse> GetMovies()
         {
             var movies = _movieRepository.GetAllMovies();
 
-            var result = new List<GetAllMoviesResponse>();
+            var result = new List<MovieResponse>();
 
-            foreach(var movie in movies)
+            foreach (var movie in movies)
             {
-                result.Add(new GetAllMoviesResponse
+                result.Add(new MovieResponse
                 {
                     Id = movie.Id,
                     Name = movie.Name
                 });
             }
+
+            return result;
+        }
+
+        [HttpGet("{id}")]
+        public ActionResult<MovieResponse> GetMovieById(int id)
+        {
+            var movie = _movieRepository.GetMovieById(id);
+
+            if (movie == null)
+            {
+                ErrorResponseModel errorResponse = new ErrorResponseModel()
+                {
+                    ErrorMessage = Messages.MOVIE_DOES_NOT_EXIST,
+                    StatusCode = System.Net.HttpStatusCode.NotFound
+                };
+                return NotFound(errorResponse);
+            }
+
+            var result = new MovieResponse()
+            {
+                Id = movie.Id,
+                Name = movie.Name
+            };
 
             return result;
         }
