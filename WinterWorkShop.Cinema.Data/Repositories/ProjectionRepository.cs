@@ -8,7 +8,14 @@ namespace WinterWorkShop.Cinema.Data.Repositories
 
         public List<ProjectionModel> GetAllProjections()
         {
-            return Database.GetallProjectionsResponses;
+            return Database.GetAllProjectionsResponses;
         }
+        public ProjectionModel GetProjectionById(int id)
+        {
+            var projection = Database.GetAllProjectionsResponses.FirstOrDefault(x => x.Id == id);
+
+            return projection;
+        }
+
     }
 }
