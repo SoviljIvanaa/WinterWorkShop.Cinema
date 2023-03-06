@@ -17,6 +17,9 @@ namespace WinterWorkShop.Cinema.API.Controllers
         }
 
         [HttpGet()]
+
+        // ***************************************************************************************************
+        /*
         public List<GetAllProjectionsResponses> GetProjections()
         {
             var projections = _projectionRepository.GetAllProjections();
@@ -33,6 +36,22 @@ namespace WinterWorkShop.Cinema.API.Controllers
             }
 
             return result;
+        }*/
+        // ***************************************************************************************************
+
+        public List<GetAllProjectionsResponses> GetProjectionWithId()
+        {
+            var projectionById = _projectionRepository.GetProjectionById(2);
+
+            var resultById = new List<GetAllProjectionsResponses>();
+
+            resultById.Add(new GetAllProjectionsResponses
+            {
+                Id = projectionById.Id,
+                Date = projectionById.Date
+            });
+
+            return resultById;
         }
     }
 }
