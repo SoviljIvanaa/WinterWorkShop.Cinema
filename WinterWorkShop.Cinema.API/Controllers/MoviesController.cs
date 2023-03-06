@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using WinterWorkShop.Cinema.API.Controllers;
 using WinterWorkShop.Cinema.Data.Repositories;
 using WinterWorkShop.Cinema.Domain.Responses;
 
@@ -7,8 +8,8 @@ namespace WinterWorkShop.Cinema.API.Controllers
     [ApiController]
     [Route("movies")]
     public class MoviesController : BaseController
-    {
-        public readonly IMovieRepository _movieRepository;
+        {
+                public readonly IMovieRepository _movieRepository;
 
         public MoviesController(IMovieRepository movieRepository)
         {
@@ -22,7 +23,7 @@ namespace WinterWorkShop.Cinema.API.Controllers
 
             var result = new List<GetAllMoviesResponse>();
 
-            foreach(var movie in movies)
+            foreach (var movie in movies)
             {
                 result.Add(new GetAllMoviesResponse
                 {
