@@ -9,7 +9,7 @@ namespace WinterWorkShop.Cinema.Data.Repositories
 
         public List<Projections> GetAllProjections()
         {
-            return Database.GetAllProjections;
+            return Database.GetAllProjectionsResponses;
         }
 
     }

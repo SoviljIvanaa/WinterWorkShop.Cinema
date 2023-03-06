@@ -5,7 +5,7 @@ using WinterWorkShop.Cinema.Domain.Responses;
 
 namespace WinterWorkShop.Cinema.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("projections")]
     [ApiController]
     public class ProjectionsController : BaseController
     {
