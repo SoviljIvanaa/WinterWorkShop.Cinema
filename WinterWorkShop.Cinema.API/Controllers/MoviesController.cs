@@ -16,7 +16,8 @@ namespace WinterWorkShop.Cinema.API.Controllers
         }
 
         [HttpGet()]
-        
+
+        // ***************************************************************************************************
         /*public List<GetAllMoviesResponse> GetMovies()
         {
             var movies = _movieRepository.GetAllMovies();
@@ -34,6 +35,7 @@ namespace WinterWorkShop.Cinema.API.Controllers
 
             return result;
         }*/
+        // ***************************************************************************************************
 
         public List<GetAllMoviesResponse> GetMovieWithId()
         {
