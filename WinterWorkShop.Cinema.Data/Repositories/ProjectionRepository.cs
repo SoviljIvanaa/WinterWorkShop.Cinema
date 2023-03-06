@@ -8,7 +8,7 @@ using WinterWorkShop.Cinema.Domain.Common;
 
 namespace WinterWorkShop.Cinema.Data.Repositories
 {
-    public class ProjectRepository : IProjectionRepository
+    public class ProjectionRepository : IProjectionRepository
     {
         public Database Database = new Database();
 
