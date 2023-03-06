@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using WinterWorkShop.Cinema.Data.Models;
+using WinterWorkShop.Cinema.Domain.Common;
+
+namespace WinterWorkShop.Cinema.Data.Repositories
+{
+    public class ProjectRepository : IProjectionRepository
+    {
+        public Database Database = new Database();
+
+        public List<ProjectionModel> GetAllProjections()
+        {
+            return Database.GetAllProjectionsResponses;
+        }
+    }
+}
