@@ -1,4 +1,5 @@
-﻿using WinterWorkShop.Cinema.Data.Models;
+﻿using WinterWorkShop.Cinema.Data.Exceptions;
+using WinterWorkShop.Cinema.Data.Models;
 using WinterWorkShop.Cinema.Domain.Common;
 
 namespace WinterWorkShop.Cinema.Data.Repositories
@@ -16,7 +17,7 @@ namespace WinterWorkShop.Cinema.Data.Repositories
         {
             var movieModel = Database.GetAllMoviesResponses.FirstOrDefault(m => m.Id == id);
 
-            return movieModel == null ? throw new Exception("Movie not found.") : movieModel;
+            return movieModel == null ? throw new NotFoundException(id) : movieModel;
         }
     }
 }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using WinterWorkShop.Cinema.Data.Exceptions;
 using WinterWorkShop.Cinema.Data.Models;
 using WinterWorkShop.Cinema.Domain.Common;
 
@@ -20,14 +16,14 @@ namespace WinterWorkShop.Cinema.Data.Repositories
         {
             var projection = _database.GetAllProjectionsResponses.FirstOrDefault(p => p.Id == id);
            
-            return projection == null ? throw new Exception("Projection not found") : projection;
+            return projection == null ? throw new NotFoundException(id) : projection;
         }
 
         public List<ProjectionsModel> GetProjectionsByMovieId(int movieId)
         {
             var projections = _database.GetAllProjectionsResponses.Where(p => p.MovieId == movieId).ToList();
 
-            return projections.Count == 0 ? throw new Exception("Movie has no projections") : projections;
+            return projections.Count == 0 ? throw new NotFoundException(movieId) : projections;
         }
     }
 }
