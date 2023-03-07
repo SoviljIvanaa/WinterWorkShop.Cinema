@@ -17,5 +17,10 @@ namespace WinterWorkShop.Cinema.Data.Repositories
 
             return movie;
         }
+
+        public int AddNewMovie(MovieModel movie)
+        {
+            return movie.Id;
+        }
     }
 }
