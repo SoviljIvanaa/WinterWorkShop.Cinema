@@ -1,4 +1,5 @@
 ﻿using WinterWorkShop.Cinema.Data.Models;
+using WinterWorkShop.Cinema.Domain.Responses;
 
 namespace WinterWorkShop.Cinema.Data.Repositories
 {
@@ -6,7 +7,7 @@ namespace WinterWorkShop.Cinema.Data.Repositories
     {
         List<Projections> GetAllProjections();
 
-        Projections GetProjectionsById(int id);
+        Projections GetProjectionById(int id);
         Projections GetProjectionsByMovieId(int id);
     }
 }
