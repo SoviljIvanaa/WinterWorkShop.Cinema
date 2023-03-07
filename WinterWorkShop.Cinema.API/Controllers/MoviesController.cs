@@ -16,6 +16,7 @@ namespace WinterWorkShop.Cinema.API.Controllers
         }
 
         [HttpGet()]
+
         public List<GetAllMoviesResponse> GetMovies()
         {
             var movies = _movieRepository.GetAllMovies();
@@ -42,10 +43,10 @@ namespace WinterWorkShop.Cinema.API.Controllers
 
             var resultById = new List<GetAllMoviesResponse>();
 
-            resultById.Add(new GetAllMoviesResponse
-            {
+            resultById.Add(new GetAllMoviesResponse 
+            { 
                 Id = movieById.Id,
-                Name = movieById.Name
+                Name = movieById.Name   
             });
 
             return resultById;

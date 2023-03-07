@@ -6,8 +6,8 @@ namespace WinterWorkShop.Cinema.Domain.Common
     {
         public List<MovieModel> GetAllMoviesResponses = new List<MovieModel> 
         { 
-            new MovieModel { Id = 1, Name = "Spuderman" },
-            new MovieModel { Id = 2, Name = "Spuderman 2"}
+            new MovieModel { Id = 1, Name = "Spiderman"},
+            new MovieModel { Id = 2, Name = "Spiderman 2"}
         };
 
         public List<ProjectionModel> GetAllProjectionsResponses = new List<ProjectionModel>
