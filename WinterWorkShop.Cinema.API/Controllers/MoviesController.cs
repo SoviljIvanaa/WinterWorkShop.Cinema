@@ -1,28 +1,30 @@
 using Microsoft.AspNetCore.Mvc;
+using WinterWorkShop.Cinema.API.Controllers;
+using WinterWorkShop.Cinema.Data.Models;
 using WinterWorkShop.Cinema.Data.Repositories;
 using WinterWorkShop.Cinema.Domain.Responses;
 
 namespace WinterWorkShop.Cinema.API.Controllers
 {
     [ApiController]
-    [Route("movies")]
     public class MoviesController : BaseController
-    {
-        public readonly IMovieRepository _movieRepository;
+        {
+                public readonly IMovieRepository _movieRepository;
 
         public MoviesController(IMovieRepository movieRepository)
         {
             _movieRepository = movieRepository;
         }
 
-        [HttpGet()]
+        [HttpGet("movies")]
+        
         public List<GetAllMoviesResponse> GetMovies()
         {
             var movies = _movieRepository.GetAllMovies();
 
             var result = new List<GetAllMoviesResponse>();
 
-            foreach(var movie in movies)
+            foreach (var movie in movies)
             {
                 result.Add(new GetAllMoviesResponse
                 {
@@ -32,6 +34,14 @@ namespace WinterWorkShop.Cinema.API.Controllers
             }
 
             return result;
+        }
+
+        [HttpGet("movies/{id}")]
+        public MovieModel GetMoviesById(int id)
+        {
+            var movies = _movieRepository.GetMoviesById(id);
+
+            return movies;
         }
     }
 }
