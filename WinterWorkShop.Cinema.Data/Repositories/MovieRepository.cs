@@ -14,7 +14,9 @@ namespace WinterWorkShop.Cinema.Data.Repositories
 
         public MovieModel GetMovieById(int id)
         {
-            return Database.GetAllMoviesResponses.FirstOrDefault(m => m.Id == id);
+            var movieModel = Database.GetAllMoviesResponses.FirstOrDefault(m => m.Id == id);
+
+            return movieModel == null ? throw new Exception("Movie not found.") : movieModel;
         }
     }
 }
