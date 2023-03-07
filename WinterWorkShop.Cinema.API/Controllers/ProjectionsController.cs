@@ -36,6 +36,7 @@ namespace WinterWorkShop.Cinema.API.Controllers
             return result;
         }
 
+
         [HttpGet("({Id})")]
 
         public List<GetAllProjectionsResponses> GetProjectionWithId(int Id)
