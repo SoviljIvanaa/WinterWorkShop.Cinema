@@ -17,7 +17,7 @@ namespace WinterWorkShop.Cinema.API.Controllers
         public readonly IProjectionsRepository _projectionsRepository;
 
         [HttpGet()]
-        public List<GetAllProjectionsResponse> Index()
+        public List<GetAllProjectionsResponse> GetAllProjections()
         {
             var projections = _projectionsRepository.GetAllProjections();
 
@@ -45,15 +45,15 @@ namespace WinterWorkShop.Cinema.API.Controllers
             return result;
         }
 
-        [HttpGet("GetProjectionByMovieId/{id}")]
-        public List<GetProjectionsByMovieId> GetProjectionByMovieId(int id)
+        [HttpGet("GetProjectionsByMovieId/{id}")]
+        public List<GetProjectionsByMovieIdResponse> GetProjectionsByMovieId(int id)
         {
-            var projections = _projectionsRepository.GetProjectionByMovieId(id);
+            var projections = _projectionsRepository.GetProjectionsByMovieId(id);
 
-            var result = new List<GetProjectionsByMovieId>();
+            var result = new List<GetProjectionsByMovieIdResponse>();
 			foreach (var projection in projections)
 				{
-					result.Add(new GetProjectionsByMovieId
+					result.Add(new GetProjectionsByMovieIdResponse
 					{
 						Id = projection.Id, 
                         Name = projection.Name,

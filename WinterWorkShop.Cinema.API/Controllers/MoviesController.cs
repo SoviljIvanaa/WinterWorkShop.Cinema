@@ -34,12 +34,11 @@ namespace WinterWorkShop.Cinema.API.Controllers
             return result;
         }
         [HttpGet("{id}")]
-        public GetMovieByIdResponse GetMovies(int id)
+        public GetMovieByIdResponse GetMovie(int id)
         {
             var movie = _movieRepository.GetMovieById(id);
 
             var result = new GetMovieByIdResponse { Id = movie.Id, Name = movie.Name };
-
 
             return result;
         }
