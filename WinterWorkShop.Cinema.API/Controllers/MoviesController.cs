@@ -40,6 +40,7 @@ namespace WinterWorkShop.Cinema.API.Controllers
 
         public List<GetAllMoviesResponse> GetMovieWithId(int Id)
         {
+
             var movieById = _movieRepository.GetMovieById(Id);
 
             var resultById = new List<GetAllMoviesResponse>();

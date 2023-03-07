@@ -14,7 +14,14 @@ namespace WinterWorkShop.Cinema.Data.Repositories
 
         public MovieModel GetMovieById(int idMovieSample) 
         {
-            return GetAllMovies().FirstOrDefault(MovieModel => MovieModel.Id == idMovieSample);
+            var getMovie = GetAllMovies().FirstOrDefault(MovieModel => MovieModel.Id == idMovieSample);
+
+            if(getMovie is null)
+            {
+                throw new Exception(idMovieSample + " does not exist.");
+            }
+
+            return getMovie;
         }
     }
 }
