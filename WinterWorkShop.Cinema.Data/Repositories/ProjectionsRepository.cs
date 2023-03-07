@@ -1,5 +1,7 @@
-﻿using WinterWorkShop.Cinema.Data.Models;
+﻿using WinterWorkShop.Cinema.Data.Exceptions;
+using WinterWorkShop.Cinema.Data.Models;
 using WinterWorkShop.Cinema.Domain.Common;
+using WinterWorkShop.Cinema.Domain.Responses;
 
 namespace WinterWorkShop.Cinema.Data.Repositories
 {
@@ -11,16 +13,20 @@ namespace WinterWorkShop.Cinema.Data.Repositories
         {
             return Database.GetAllProjectionsResponses;
         }
-        public Projections GetProjectionsById(int id)
+        public Projections GetProjectionById(int id)
         {
-            var result = Database.GetAllProjectionsResponses.Where(u => u.Id == id).FirstOrDefault();
+            var result = Database.GetAllProjectionsResponses.FirstOrDefault(u => u.Id == id);
 
             return result;
         }
 
         public Projections GetProjectionsByMovieId(int id)
         {
-            var result = Database.GetAllProjectionsResponses.Where(u => u.MoviesId == id).FirstOrDefault();
+            var result = Database.GetAllProjectionsResponses.FirstOrDefault(u => u.MoviesId == id);
+            if(result == null)
+            {
+                throw new NotFoundException(id);
+            }
 
             return result;
         }
