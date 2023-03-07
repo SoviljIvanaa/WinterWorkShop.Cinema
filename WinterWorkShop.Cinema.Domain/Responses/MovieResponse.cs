@@ -9,5 +9,6 @@
         public string LeadActor { get; set; }
         public int ReleaseYear { get; set; }
         public string Plot { get; set; }
+        public string Rating { get; set; }
     }
 }
