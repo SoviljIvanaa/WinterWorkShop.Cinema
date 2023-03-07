@@ -9,6 +9,7 @@ namespace WinterWorkShop.Cinema.API.Controllers
     public class MoviesController : BaseController
     {
         public readonly IMovieRepository _movieRepository;
+        public readonly IProjectionRepository _projectionRepository;
 
         public MoviesController(IMovieRepository movieRepository)
         {
