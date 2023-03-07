@@ -57,6 +57,7 @@ namespace WinterWorkShop.Cinema.API.Controllers
                 Name = movie.Name
             };
 
+
             return result;
         }
     }
