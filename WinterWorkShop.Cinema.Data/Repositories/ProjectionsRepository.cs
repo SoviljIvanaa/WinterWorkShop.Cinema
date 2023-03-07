@@ -18,12 +18,16 @@ namespace WinterWorkShop.Cinema.Data.Repositories
 
         public ProjectionsModel GetProjectionById(int id)
         {
-            return _database.GetAllProjectionsResponses.FirstOrDefault(p => p.Id == id);
+            var projection = _database.GetAllProjectionsResponses.FirstOrDefault(p => p.Id == id);
+           
+            return projection == null ? throw new Exception("Projection not found") : projection;
         }
 
-        public List<ProjectionsModel> GetProjectionByMovieId(int movieId)
+        public List<ProjectionsModel> GetProjectionsByMovieId(int movieId)
         {
-            return _database.GetAllProjectionsResponses.Where(p => p.MovieId == movieId).ToList();
+            var projections = _database.GetAllProjectionsResponses.Where(p => p.MovieId == movieId).ToList();
+
+            return projections.Count == 0 ? throw new Exception("Movie has no projections") : projections;
         }
     }
 }
