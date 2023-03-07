@@ -6,5 +6,6 @@ namespace WinterWorkShop.Cinema.API.Controllers
     [Route("projections")]
     public class ProjectionsController : BaseController
     {
+
     }
 }
