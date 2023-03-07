@@ -5,5 +5,7 @@ namespace WinterWorkShop.Cinema.Data.Repositories
     public interface IMovieRepository
     {
         List<MovieModel> GetAllMovies();
+
+        MovieModel GetMoviesById(int id);
     }
 }

@@ -5,5 +5,7 @@ namespace WinterWorkShop.Cinema.Data.Repositories
     public interface IProjectionsRepository
     {
         List<Projections> GetAllProjections();
+
+        Projections GetProjectionsById(int id);
     }
 }
