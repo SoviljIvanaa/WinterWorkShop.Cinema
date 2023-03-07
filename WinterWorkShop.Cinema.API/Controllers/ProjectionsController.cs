@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WinterWorkShop.Cinema.Data.Models;
 using WinterWorkShop.Cinema.Data.Repositories;
 using WinterWorkShop.Cinema.Domain.Responses;
 
