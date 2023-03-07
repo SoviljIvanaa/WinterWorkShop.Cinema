@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using WinterWorkShop.Cinema.Data.Models;
 using WinterWorkShop.Cinema.Data.Repositories;
+using WinterWorkShop.Cinema.Domain.Common;
 using WinterWorkShop.Cinema.Domain.Responses;
 
 namespace WinterWorkShop.Cinema.API.Controllers
@@ -41,6 +42,14 @@ namespace WinterWorkShop.Cinema.API.Controllers
             var projections = _projectionsRepository.GetProjectionsById(id);
 
             return projections;
+        }
+
+        [HttpGet("{id}")]
+        public Projections GetProjectionsByMovieId(int id)
+        {
+            var movies = _projectionsRepository.GetProjectionsByMovieId(id);
+
+            return movies;
         }
     }
 }

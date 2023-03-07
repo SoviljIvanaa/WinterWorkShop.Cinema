@@ -18,9 +18,9 @@ namespace WinterWorkShop.Cinema.Data.Repositories
             return result;
         }
 
-        public Projections GetProjectionsById(int id)
+        public Projections GetProjectionsByMovieId(int id)
         {
-            var result = Database.GetAllProjectionsResponses.Where(u => u.Id == id).FirstOrDefault();
+            var result = Database.GetAllProjectionsResponses.Where(u => u.MoviesId == id).FirstOrDefault();
 
             return result;
         }
